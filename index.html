@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browser Compatibility Guide | flash. Studio</title>
+  
+  <!-- Fonts: Plus Jakarta Sans & JetBrains Mono & Newsreader -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      /* Atelier Warm Cream & Linen Palette */
+      --bg-base: #f7f4ee;
+      --bg-surface: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #fcfbfa;
+      --bg-input: #f3efe6;
+      --bg-subtle: #eae4d8;
+      
+      /* Borders */
+      --border-subtle: rgba(0, 0, 0, 0.07);
+      --border-light: #e4ded2;
+      --border-focus: #181715;
+      
+      /* Studio Terracotta Accents */
+      --brand-terracotta: #cf5c36;
+      --brand-terracotta-hover: #b84c28;
+      --brand-terracotta-soft: rgba(207, 92, 54, 0.09);
+      --brand-terracotta-border: rgba(207, 92, 54, 0.28);
+      --brand-amber: #d97706;
+      --brand-amber-soft: rgba(217, 119, 6, 0.08);
+      --brand-green: #15803d;
+      --brand-green-soft: rgba(21, 128, 61, 0.09);
+      --brand-dark: #181715;
+      
+      /* Typography */
+      --text-main: #181715;
+      --text-muted: #5e5a52;
+      --text-dim: #8c877d;
+      
+      /* Geometry */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 26px;
+      --radius-full: 9999px;
+      
+      /* Shadows */
+      --shadow-soft: 0 10px 30px -4px rgba(45, 35, 20, 0.05), 0 2px 8px rgba(45, 35, 20, 0.03);
+      --shadow-hover: 0 18px 40px -6px rgba(45, 35, 20, 0.1), 0 4px 12px rgba(45, 35, 20, 0.04);
+      --shadow-terracotta: 0 8px 25px -4px rgba(207, 92, 54, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation Header */
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-light);
+      background: rgba(247, 244, 238, 0.92);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 3px;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.5px;
+    }
+
+    .brand-logo .dot {
+      color: var(--brand-terracotta);
+      font-size: 26px;
+      line-height: 0;
+    }
+
+    .brand-badge {
+      margin-left: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: var(--brand-terracotta-soft);
+      color: var(--brand-terracotta);
+      border: 1px solid var(--brand-terracotta-border);
+    }
+
+    .header-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--brand-dark);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      transition: all 0.2s ease;
+    }
+
+    .header-btn:hover {
+      background: var(--brand-terracotta);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 56px 0 36px;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      margin-bottom: 22px;
+    }
+
+    .pill-badge i {
+      color: var(--brand-terracotta);
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.2;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: var(--brand-terracotta);
+      position: relative;
+    }
+
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    /* Recommended Browsers Showcase */
+    .recommend-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .recommend-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 32px;
+      }
+    }
+
+    .browser-card {
+      background: var(--bg-card);
+      border: 2px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .browser-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--brand-terracotta);
+    }
+
+    .browser-card.featured {
+      border-color: var(--brand-terracotta-border);
+      background: linear-gradient(180deg, #ffffff 0%, #fdfbf7 100%);
+    }
+
+    .browser-card .top-tag {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: var(--brand-green-soft);
+      color: var(--brand-green);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(21, 128, 61, 0.2);
+    }
+
+    .browser-img-wrap {
+      width: 88px;
+      height: 88px;
+      margin: 10px auto 16px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      padding: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .browser-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .browser-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .browser-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .card-highlights {
+      list-style: none;
+      text-align: left;
+      font-size: 13px;
+      color: var(--text-main);
+      background: var(--bg-base);
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+    }
+
+    .card-highlights li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .card-highlights li:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-highlights i {
+      color: var(--brand-green);
+      font-size: 14px;
+    }
+
+    /* Launch Call To Action Card */
+    .cta-card {
+      background: #ffffff;
+      border: 2px solid var(--brand-terracotta-border);
+      border-radius: var(--radius-xl);
+      padding: 36px 32px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    .cta-title {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .cta-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+
+    .launch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--brand-terracotta);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-terracotta);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .launch-btn:hover {
+      background: var(--brand-terracotta-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -4px rgba(207, 92, 54, 0.45);
+      color: #ffffff;
+    }
+
+    .launch-btn i {
+      font-size: 19px;
+      transition: transform 0.2s ease;
+    }
+
+    .launch-btn:hover i {
+      transform: translateX(3px);
+    }
+
+    /* Disclaimer Section */
+    .disclaimer-box {
+      margin-top: 26px;
+      background: #fff9f0;
+      border: 1px solid #fed7aa;
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      text-align: left;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .disclaimer-icon {
+      font-size: 22px;
+      color: #ea580c;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .disclaimer-text h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #9a3412;
+      margin-bottom: 4px;
+    }
+
+    .disclaimer-text p {
+      font-size: 13.5px;
+      color: #7c2d12;
+      line-height: 1.55;
+    }
+
+    .community-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .community-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #9a3412;
+      background: rgba(234, 88, 12, 0.1);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      text-decoration: none;
+      border: 1px solid rgba(234, 88, 12, 0.2);
+      transition: all 0.2s;
+    }
+
+    .community-chip:hover {
+      background: #ea580c;
+      color: #ffffff;
+    }
+
+    /* Section Headings */
+    .section-head {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .section-head p {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    /* Compatibility Table Wrapper */
+    .table-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+
+    .device-tabs {
+      display: flex;
+      background: var(--bg-input);
+      border-bottom: 1px solid var(--border-light);
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      flex: 1;
+      min-width: 140px;
+      padding: 14px 20px;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+      background: rgba(255,255,255,0.4);
+    }
+
+    .tab-btn.active {
+      color: var(--brand-terracotta);
+      background: #ffffff;
+      border-bottom-color: var(--brand-terracotta);
+    }
+
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background: #faf8f5;
+      padding: 14px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    td {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 14px;
+      vertical-align: middle;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr.highlight-row {
+      background: rgba(207, 92, 54, 0.02);
+    }
+
+    .browser-cell {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .browser-cell i {
+      font-size: 22px;
+    }
+
+    .browser-cell img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    /* Badges */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    .status-badge.recommended {
+      background: var(--brand-green-soft);
+      color: var(--brand-green);
+      border: 1px solid rgba(21, 128, 61, 0.25);
+    }
+
+    .status-badge.compatible {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid rgba(29, 78, 216, 0.2);
+    }
+
+    .status-badge.quirks {
+      background: var(--brand-amber-soft);
+      color: #b45309;
+      border: 1px solid rgba(217, 119, 6, 0.25);
+    }
+
+    .star-rating {
+      color: #f59e0b;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    /* Troubleshooting Card (Chrome quirks) */
+    .troubleshoot-box {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .troubleshoot-box h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .troubleshoot-box h3 i {
+      color: #b45309;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .step-card {
+      background: var(--bg-base);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      border: 1px solid var(--border-light);
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-full);
+      background: var(--brand-terracotta);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .step-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .step-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .step-card code {
+      background: #ffffff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      border: 1px solid var(--border-light);
+      color: var(--brand-terracotta);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-light);
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    footer a {
+      color: var(--brand-terracotta);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Tab switcher handling */
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Header -->
+  <header>
+    <div class="container nav-inner">
+      <a href="https://krishna5567.github.io/final/" class="brand-logo" target="_blank" rel="noopener">
+        flash<span class="dot">.</span>
+        <span class="brand-badge">Studio Guide</span>
+      </a>
+      <a href="https://krishna5567.github.io/final/" class="header-btn" target="_blank" rel="noopener">
+        <span>Launch App</span>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="pill-badge">
+        <i class="fa-solid fa-bolt"></i>
+        <span>Official Browser Recommendation & Setup</span>
+      </div>
+      <h1>Choose the Best Browser for <span>flash. Studio</span></h1>
+      <p class="hero-subtitle">
+        For high-performance 3D canvas execution, zero popup-blocking errors, and the smoothest real-time code rendering, 
+        we strongly recommend using <strong>Microsoft Edge</strong> or <strong>Mozilla Firefox</strong>.
+      </p>
+    </section>
+
+    <!-- Top Recommendation Cards: Edge & Firefox Logos -->
+    <section class="recommend-grid">
+      <!-- Microsoft Edge -->
+      <div class="browser-card featured">
+        <div class="top-tag">★ 100% Recommended</div>
+        <div class="browser-img-wrap">
+          <img src="./edge_logo.jpg" alt="Microsoft Edge" onerror="this.src='./edge.jpg'" />
+        </div>
+        <h3>Microsoft Edge</h3>
+        <p>Built-in Chromium engine with enhanced sandbox permissions and optimized popup management.</p>
+        <ul class="card-highlights">
+          <li><i class="fa-solid fa-circle-check"></i> Zero popup blocking for 3D game test runners</li>
+          <li><i class="fa-solid fa-circle-check"></i> High-performance WebGL & GPU hardware acceleration</li>
+          <li><i class="fa-solid fa-circle-check"></i> Pre-installed on Windows; available on Mac & Linux</li>
+        </ul>
+      </div>
+
+      <!-- Mozilla Firefox -->
+      <div class="browser-card featured">
+        <div class="top-tag">★ 100% Recommended</div>
+        <div class="browser-img-wrap">
+          <img src="./firefox_logo.jpg" alt="Mozilla Firefox" onerror="this.src='./firefox.jpg'" />
+        </div>
+        <h3>Mozilla Firefox</h3>
+        <p>Independent Gecko engine with pristine canvas rendering and robust multi-threaded script execution.</p>
+        <ul class="card-highlights">
+          <li><i class="fa-solid fa-circle-check"></i> Flawless iframe canvas execution without memory limits</li>
+          <li><i class="fa-solid fa-circle-check"></i> Unrestricted AudioContext playback for interactive audio</li>
+          <li><i class="fa-solid fa-circle-check"></i> Clean cache reloading — avoids stale code caching</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner & Live App Link -->
+    <section class="cta-card">
+      <h2 class="cta-title">Ready to Experience flash. Studio?</h2>
+      <p class="cta-desc">
+        Click below to launch the live platform. For best results, open this link in <strong>Microsoft Edge</strong> or <strong>Firefox</strong>.
+      </p>
+
+      <a href="https://krishna5567.github.io/final/" class="launch-btn" target="_blank" rel="noopener">
+        <span>🚀 Open flash. Studio (Live Web App)</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+      <!-- Important Community Disclaimer -->
+      <div class="disclaimer-box">
+        <div class="disclaimer-icon">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div class="disclaimer-text">
+          <h4>Active Development Notice & Community Support</h4>
+          <p>
+            <strong>"If you are facing any problem, just tell our community — I will fix it! Because this studio is still actively developing, you might occasionally face some small problems or browser quirks."</strong>
+          </p>
+          <div class="community-links">
+            <a href="https://youtube.com/@krishnatech-ind" target="_blank" rel="noopener" class="community-chip">
+              <i class="fa-brands fa-youtube"></i>
+              <span>Krishna Tech Community</span>
+            </a>
+            <a href="https://github.com/krishna5567" target="_blank" rel="noopener" class="community-chip">
+              <i class="fa-brands fa-github"></i>
+              <span>GitHub Feedback</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Device-Wise Compatibility Breakdown -->
+    <section class="section-head">
+      <h2>Device-Wise Browser Compatibility Guide</h2>
+      <p>Compare performance and compatibility across Windows, Linux, and macOS devices.</p>
+    </section>
+
+    <div class="table-card">
+      <!-- Device Selector Tabs -->
+      <div class="device-tabs">
+        <button class="tab-btn active" onclick="switchTab('windows')">
+          <i class="fa-brands fa-windows"></i>
+          <span>Windows PC</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('linux')">
+          <i class="fa-brands fa-linux"></i>
+          <span>Linux (Ubuntu / Arch)</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('mac')">
+          <i class="fa-brands fa-apple"></i>
+          <span>macOS (MacBook / iMac)</span>
+        </button>
+      </div>
+
+      <!-- Windows Table -->
+      <div id="tab-windows" class="table-content active">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Browser</th>
+                <th>Compatibility</th>
+                <th>Status</th>
+                <th>Performance & Notes</th>
+                <th>Game / Canvas Popup</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-row">
+                <td>
+                  <div class="browser-cell">
+                    <img src="./edge_logo.jpg" alt="Edge" onerror="this.src='./edge.jpg'">
+                    <span>Microsoft Edge</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="star-rating">★★★★★ <span>5.0</span></div>
+                </td>
+                <td>
+                  <span class="status-badge recommended"><i class="fa-solid fa-circle-check"></i> Recommended</span>
+                </td>
+                <td>Flawless native DirectX/WebGL acceleration. Default popups work instantly without warnings.</td>
+                <td><strong style="color:var(--brand-green);">Instant Launch (100% OK)</strong></td>
+              </tr>
+              <tr class="highlight-row">
+                <td>
+                  <div class="browser-cell">
+                    <img src="./firefox_logo.jpg" alt="Firefox" onerror="this.src='./firefox.jpg'">
+                    <span>Mozilla Firefox</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="star-rating">★★★★★ <span>5.0</span></div>
+                </td>
+                <td>
+                  <span class="status-badge recommended"><i class="fa-solid fa-circle-check"></i> Recommended</span>
+                </td>
+                <td>Smooth WebGL2, multi-core script isolation, no aggressive tab discarding or memory freezes.</td>
+                <td><strong style="color:var(--brand-green);">Instant Launch (100% OK)</strong></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="browser-cell">
+                    <i class="fa-brands fa-chrome" style="color: #ea4335;"></i>
+                    <span>Google Chrome</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="star-rating">★★★☆☆ <span>3.2</span></div>
+                </td>
+                <td>
+                  <span class="status-badge quirks"><i class="fa-solid fa-triangle-exclamation"></i> Quirks Present</span>
+                </td>
+                <td>
+                  Aggressive popup blocker can suppress full-screen preview tabs. Heavy caching requires manual Ctrl+Shift+R reload.
+                </td>
+                <td><span style="color:#b45309;">Requires "Allow Popups"</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="browser-cell">
+                    <i class="fa-brands fa-opera" style="color: #ff1b2d;"></i>
+                    <span>Opera / Brave</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="star-rating">★★★★☆ <span>4.0</span></div>
+                </td>
+                <td>
+                  <span class="status-badge compatible"><i class="fa-solid fa-check"></i> Compatible</span>
+                </td>
+                <td>Fast performance, but ensure built-in ad/tracker shields don't block canvas runner scripts.</td>
+                <td><span>Check shield toggles</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Linux Table -->
+      <div id="tab-linux" class="table-content">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Browser</th>
+                <th>Compatibility</th>
+                <th>Status</th>
+                <th>Performance & Notes</th>
+                <th>Game / Canvas Popup</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-row">
+                <td>
+                  <div class="browser-cell">
+                    <img src="./firefox_logo.jpg" alt="Firefox" onerror="this.src='./firefox.jpg'">
+                    <span>Mozilla Firefox</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="star-rating">★★★★★ <span>5.0</span></div>
+                </td>
+                <td>
+                  <span class="status-badge recommended"><i class="fa-solid fa-circle-check"></i> Best for Linux</span>
+                </td>
+                <td>First-class Wayland & X11 acceleration. Pre-installed on Ubuntu, Fedora, Debian, and Arch.</td>
+                <td><strong style="color:var(--brand-green);">Instant Launch (100% OK)</strong></td>
+              </tr>
+              <tr class="highlight-row">
+                <td>
+                  <div class="browser-cell">
+                    <img src="./edge_logo.jpg" alt="Edge" onerror="this.src='./edge.jpg'">
+                    <span>Microsoft Edge (Linux)</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="star-rating">★★★★★ <span>4.9</span></div>
+                </td>
+                <td>
+                  <span class="status-badge recommended"><i class="fa-solid fa-circle-check"></i> Recommended</span>
+                </td>
+                <td>Available via .deb / .rpm. Solid GPU compositing and seamless preview windows.</td>
+                <td><strong style="color:var(--brand-green);">Instant Launch (100% OK)</strong></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="browser-cell">
+                    <i class="fa-brands fa-chrome" style="color: #ea4335;"></i>
+                    <span>Chromium / Chrome</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="star-rating">★★★☆☆ <span>3.4</span></div>
+                </td>
+                <td>
+                  <span class="status-badge quirks"><i class="fa-solid fa-triangle-exclamation"></i> Minor Quirks</span>
+                </td>
+                <td>Hardware acceleration flags may need tuning on Wayland; popups need permission toggle.</td>
+                <td><span style="color:#b45309;">Requires "Allow Popups"</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Mac Table -->
+      <div id="tab-mac" class="table-content">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Browser</th>
+                <th>Compatibility</th>
+                <th>Status</th>
+                <th>Performance & Notes</th>
+                <th>Game / Canvas Popup</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-row">
+                <td>
+                  <div class="browser-cell">
+                    <img src="./firefox_logo.jpg" alt="Firefox" onerror="this.src='./firefox.jpg'">
+                    <span>Mozilla Firefox for Mac</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="star-rating">★★★★★ <span>5.0</span></div>
+                </td>
+                <td>
+                  <span class="status-badge recommended"><i class="fa-solid fa-circle-check"></i> Recommended</span>
+                </td>
+                <td>Apple Silicon optimized (M1/M2/M3/M4). Beautiful Retina scaling and crystal-clear 3D canvas.</td>
+                <td><strong style="color:var(--brand-green);">Instant Launch (100% OK)</strong></td>
+              </tr>
+              <tr class="highlight-row">
+                <td>
+                  <div class="browser-cell">
+                    <img src="./edge_logo.jpg" alt="Edge" onerror="this.src='./edge.jpg'">
+                    <span>Microsoft Edge for Mac</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="star-rating">★★★★★ <span>4.9</span></div>
+                </td>
+                <td>
+                  <span class="status-badge recommended"><i class="fa-solid fa-circle-check"></i> Recommended</span>
+                </td>
+                <td>High battery efficiency, flawless preview tab creation, zero sandboxing conflicts.</td>
+                <td><strong style="color:var(--brand-green);">Instant Launch (100% OK)</strong></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="browser-cell">
+                    <i class="fa-brands fa-safari" style="color: #006cff;"></i>
+                    <span>Apple Safari</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="star-rating">★★★★☆ <span>4.1</span></div>
+                </td>
+                <td>
+                  <span class="status-badge compatible"><i class="fa-solid fa-check"></i> Compatible</span>
+                </td>
+                <td>Energy-friendly, but requires manual user click for audio unlock in games and canvas windows.</td>
+                <td><span>Popup Prompt Appears</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="browser-cell">
+                    <i class="fa-brands fa-chrome" style="color: #ea4335;"></i>
+                    <span>Google Chrome</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="star-rating">★★★☆☆ <span>3.3</span></div>
+                </td>
+                <td>
+                  <span class="status-badge quirks"><i class="fa-solid fa-triangle-exclamation"></i> Quirks Present</span>
+                </td>
+                <td>Aggressive background tab hibernation ("Memory Saver") can reset game states when switching tabs.</td>
+                <td><span style="color:#b45309;">Requires "Allow Popups"</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick 10-Second Fix for Google Chrome Users -->
+    <section class="troubleshoot-box">
+      <h3>
+        <i class="fa-solid fa-wrench"></i>
+        <span>Using Google Chrome? Here’s How to Fix Quirks in 10 Seconds</span>
+      </h3>
+      <p style="color: var(--text-muted); font-size: 14px;">
+        If you prefer staying on Google Chrome, follow these 3 quick adjustments to ensure 100% functionality:
+      </p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h4>Allow Popups & Redirects</h4>
+          <p>
+            Click the <strong>tune / lock icon</strong> next to the address bar on <code>krishna5567.github.io</code>, click <strong>Site settings</strong>, and change <strong>Pop-ups and redirects</strong> to <strong>Allow</strong>.
+          </p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h4>Perform Hard Refresh</h4>
+          <p>
+            Chrome caches aggressively. When updates release, press <code>Ctrl + F5</code> (or <code>Ctrl + Shift + R</code>) on Windows/Linux, or <code>Cmd + Shift + R</code> on Mac to reload fresh code.
+          </p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h4>Exclude from Memory Saver</h4>
+          <p>
+            If 3D games pause when you switch tabs, go to Chrome Settings &rarr; <strong>Performance</strong> &rarr; Add <code>krishna5567.github.io</code> to <strong>Keep these sites active</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>
+        <strong>flash. Studio</strong> &bull; Crafted with care by <a href="https://youtube.com/@krishnatech-ind" target="_blank" rel="noopener">Krishna</a> &amp; Community.
+      </p>
+      <p style="margin-top: 6px; font-size: 13px; color: var(--text-dim);">
+        Direct Live Web Link: <a href="https://krishna5567.github.io/final/" target="_blank" rel="noopener">https://krishna5567.github.io/final/</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Interactive Device Tab Switcher Script -->
+  <script>
+    function switchTab(platform) {
+      // Remove active class from all tab buttons
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      // Remove active class from all tab contents
+      const contents = document.querySelectorAll('.table-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      // Activate selected tab button and content
+      const targetBtn = event.currentTarget;
+      const targetContent = document.getElementById('tab-' + platform);
+
+      if (targetBtn && targetContent) {
+        targetBtn.classList.add('active');
+        targetContent.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>

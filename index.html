@@ -669,6 +669,145 @@
       text-decoration: underline;
     }
 
+    /* Code Config Box & 1-Click Copy */
+    .code-config-card {
+      background: #ffffff;
+      border: 2px solid var(--brand-terracotta-border);
+      border-radius: var(--radius-xl);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 48px;
+    }
+
+    .code-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .code-title-group h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .code-title-group p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .btn-copy-code {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--brand-terracotta);
+      color: #ffffff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow-terracotta);
+      transition: all 0.2s ease;
+    }
+
+    .btn-copy-code:hover {
+      background: var(--brand-terracotta-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-copy-code.copied {
+      background: var(--brand-green) !important;
+      box-shadow: 0 4px 14px rgba(21, 128, 61, 0.35);
+    }
+
+    .code-display-wrap {
+      position: relative;
+    }
+
+    .code-display {
+      background: #181715;
+      color: #f7f4ee;
+      border-radius: var(--radius-md);
+      padding: 22px;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      line-height: 1.65;
+      border: 1px solid rgba(0,0,0,0.12);
+    }
+
+    .config-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .config-meta-badge {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      background: var(--bg-base);
+      border: 1px solid var(--border-light);
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      font-size: 12.5px;
+    }
+
+    .config-meta-badge span.label {
+      color: var(--text-dim);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+    .config-meta-badge code {
+      color: var(--brand-terracotta);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      word-break: break-all;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .launch-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      color: var(--text-main);
+      border: 2px solid var(--border-light);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 15px 30px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-soft);
+      transition: all 0.2s ease;
+    }
+
+    .launch-btn-secondary:hover {
+      border-color: var(--brand-terracotta);
+      color: var(--brand-terracotta);
+      transform: translateY(-2px);
+    }
+
     /* Tab switcher handling */
     .tab-content {
       display: none;
@@ -683,12 +822,13 @@
   <!-- Top Sticky Header -->
   <header>
     <div class="container nav-inner">
-      <a href="https://krishna5567.github.io/final/" class="brand-logo" target="_blank" rel="noopener">
+      <a href="https://final-8ft2.onrender.com" class="brand-logo" target="_blank" rel="noopener">
         flash<span class="dot">.</span>
         <span class="brand-badge">Studio Guide</span>
       </a>
-      <a href="https://krishna5567.github.io/final/" class="header-btn" target="_blank" rel="noopener">
-        <span>Launch App</span>
+      <a href="https://final-8ft2.onrender.com" class="header-btn" target="_blank" rel="noopener" style="background: var(--brand-terracotta);">
+        <i class="fa-solid fa-cloud"></i>
+        <span>Launch Studio (Render 24/7)</span>
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
     </div>
@@ -749,10 +889,12 @@
         Click below to launch the live platform. For best results, open this link in <strong>Microsoft Edge</strong> or <strong>Firefox</strong>.
       </p>
 
-      <a href="https://krishna5567.github.io/final/" class="launch-btn" target="_blank" rel="noopener">
-        <span>🚀 Open flash. Studio (Live Web App)</span>
-        <i class="fa-solid fa-arrow-right"></i>
-      </a>
+      <div class="btn-row">
+        <a href="https://final-8ft2.onrender.com" class="launch-btn" target="_blank" rel="noopener">
+          <span>🚀 Open flash. Studio (24/7 Cloud App)</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
 
       <!-- Important Community Disclaimer -->
       <div class="disclaimer-box">
@@ -771,9 +913,130 @@
             </a>
             <a href="https://github.com/krishna5567" target="_blank" rel="noopener" class="community-chip">
               <i class="fa-brands fa-github"></i>
-              <span>GitHub Feedback</span>
+              <span>GitHub Community</span>
             </a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. VS Code Language Models & Custom Endpoint Configuration Box -->
+    <section class="code-config-card" id="endpoint-config">
+      <div class="code-header">
+        <div class="code-title-group">
+          <h3>
+            <i class="fa-solid fa-code" style="color: var(--brand-terracotta);"></i>
+            <span>1. VS Code / Cline / Cursor Configuration Code</span>
+          </h3>
+          <p>
+            Copy and paste this configuration JSON directly into VS Code <code>chatLanguageModels.json</code> or configure Cline.
+          </p>
+        </div>
+        <button class="btn-copy-code" id="copyCodeBtn" onclick="copyEndpointConfig()">
+          <i class="fa-regular fa-copy"></i>
+          <span>Copy VS Code Config</span>
+        </button>
+      </div>
+
+      <div class="code-display-wrap">
+        <pre class="code-display"><code id="endpointCodeContent">[
+	{
+		"name": "Krishna AI Engine",
+		"vendor": "customendpoint",
+		"apiKey": "sk-krishna-pro-default",
+		"apiType": "chat-completions",
+		"models": [
+			{
+				"id": "fable-5.1",
+				"name": "Fable 5.1 (Krishna AI)",
+				"url": "https://final-8ft2.onrender.com/v1",
+				"toolCalling": true,
+				"vision": true,
+				"maxInputTokens": 128000,
+				"maxOutputTokens": 16000
+			}
+		]
+	}
+]</code></pre>
+      </div>
+
+      <!-- Quick Details Grid -->
+      <div class="config-meta-grid">
+        <div class="config-meta-badge">
+          <span class="label">API Base URL</span>
+          <code>https://final-8ft2.onrender.com/v1</code>
+        </div>
+        <div class="config-meta-badge">
+          <span class="label">Model ID</span>
+          <code>fable-5.1</code>
+        </div>
+        <div class="config-meta-badge">
+          <span class="label">API Key</span>
+          <code>sk-krishna-pro-default</code>
+        </div>
+        <div class="config-meta-badge">
+          <span class="label">Cloud Server Status</span>
+          <span style="color: var(--brand-green); font-weight: 700;"><i class="fa-solid fa-circle-check"></i> 24/7 Online &amp; Active (Render)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Claude Code settings.json Configuration Box -->
+    <section class="code-config-card" id="claude-code-config" style="border-color: rgba(207, 92, 54, 0.35);">
+      <div class="code-header">
+        <div class="code-title-group">
+          <h3>
+            <i class="fa-solid fa-terminal" style="color: var(--brand-terracotta);"></i>
+            <span>2. Claude Code Configuration (<code>settings.json</code>)</span>
+          </h3>
+          <p>
+            Copy and paste this configuration JSON directly into your <code>~/.claude/settings.json</code> file for Claude Code CLI &amp; VS Code extension.
+          </p>
+        </div>
+        <button class="btn-copy-code" id="copyClaudeCodeBtn" onclick="copyClaudeCodeConfig()">
+          <i class="fa-regular fa-copy"></i>
+          <span>Copy Claude Code Config</span>
+        </button>
+      </div>
+
+      <div class="code-display-wrap">
+        <pre class="code-display"><code id="claudeCodeContent">{
+  "env": {
+    "ANTHROPIC_API_KEY": "sk-krishna-pro-default",
+    "ANTHROPIC_BASE_URL": "https://final-8ft2.onrender.com",
+    "ANTHROPIC_DEFAULT_FABLE_MODEL": "claude-3-7-sonnet-20250219",
+    "ANTHROPIC_DEFAULT_FABLE_MODEL_NAME": "Fable 5.1",
+    "ANTHROPIC_DEFAULT_FABLE_MODEL_DESCRIPTION": "Most capable for your hardest and longest-running tasks",
+    "ANTHROPIC_DEFAULT_FABLE_MODEL_SUPPORTED_CAPABILITIES": "thinking,interleaved_thinking,adaptive_thinking,effort,xhigh_effort,max_effort,mid_conversation_system",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_PACKAGE_MANAGER_AUTO_UPDATE": "0"
+  },
+  "permissions": {
+    "allow": [],
+    "deny": []
+  },
+  "model": "fable",
+  "theme": "dark"
+}</code></pre>
+      </div>
+
+      <!-- Quick Details Grid -->
+      <div class="config-meta-grid">
+        <div class="config-meta-badge">
+          <span class="label">Target Settings File</span>
+          <code>~/.claude/settings.json</code>
+        </div>
+        <div class="config-meta-badge">
+          <span class="label">Anthropic Base URL</span>
+          <code>https://final-8ft2.onrender.com</code>
+        </div>
+        <div class="config-meta-badge">
+          <span class="label">Default Model</span>
+          <code>fable (Claude 3.7 Sonnet)</code>
+        </div>
+        <div class="config-meta-badge">
+          <span class="label">Compatibility</span>
+          <span style="color: var(--brand-green); font-weight: 700;"><i class="fa-solid fa-circle-check"></i> Claude Code CLI &amp; Extension</span>
         </div>
       </div>
     </section>
@@ -1052,7 +1315,7 @@
           <div class="step-number">1</div>
           <h4>Allow Popups & Redirects</h4>
           <p>
-            Click the <strong>tune / lock icon</strong> next to the address bar on <code>krishna5567.github.io</code>, click <strong>Site settings</strong>, and change <strong>Pop-ups and redirects</strong> to <strong>Allow</strong>.
+            Click the <strong>tune / lock icon</strong> next to the address bar on <code>final-8ft2.onrender.com</code>, click <strong>Site settings</strong>, and change <strong>Pop-ups and redirects</strong> to <strong>Allow</strong>.
           </p>
         </div>
         <div class="step-card">
@@ -1066,7 +1329,7 @@
           <div class="step-number">3</div>
           <h4>Exclude from Memory Saver</h4>
           <p>
-            If 3D games pause when you switch tabs, go to Chrome Settings &rarr; <strong>Performance</strong> &rarr; Add <code>krishna5567.github.io</code> to <strong>Keep these sites active</strong>.
+            If 3D games pause when you switch tabs, go to Chrome Settings &rarr; <strong>Performance</strong> &rarr; Add <code>final-8ft2.onrender.com</code> to <strong>Keep these sites active</strong>.
           </p>
         </div>
       </div>
@@ -1081,7 +1344,7 @@
         <strong>flash. Studio</strong> &bull; Crafted with care by <a href="https://youtube.com/@krishnatech-ind" target="_blank" rel="noopener">Krishna</a> &amp; Community.
       </p>
       <p style="margin-top: 6px; font-size: 13px; color: var(--text-dim);">
-        Direct Live Web Link: <a href="https://krishna5567.github.io/final/" target="_blank" rel="noopener">https://krishna5567.github.io/final/</a>
+        Direct 24/7 Cloud App: <a href="https://final-8ft2.onrender.com" target="_blank" rel="noopener">https://final-8ft2.onrender.com</a>
       </p>
     </div>
   </footer>
@@ -1105,6 +1368,63 @@
         targetBtn.classList.add('active');
         targetContent.classList.add('active');
       }
+    }
+
+    // 1-Click Copy VS Code / Cline Configuration Code Function
+    function copyEndpointConfig() {
+      const codeEl = document.getElementById('endpointCodeContent');
+      if (!codeEl) return;
+      const textToCopy = codeEl.innerText || codeEl.textContent;
+
+      copyTextHelper(textToCopy, 'copyCodeBtn', 'Copy VS Code Config');
+    }
+
+    // 1-Click Copy Claude Code settings.json Function
+    function copyClaudeCodeConfig() {
+      const codeEl = document.getElementById('claudeCodeContent');
+      if (!codeEl) return;
+      const textToCopy = codeEl.innerText || codeEl.textContent;
+
+      copyTextHelper(textToCopy, 'copyClaudeCodeBtn', 'Copy Claude Code Config');
+    }
+
+    function copyTextHelper(text, btnId, originalLabel) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+          triggerSuccessFeedback(btnId, originalLabel);
+        }).catch(() => {
+          fallbackCopyText(text, btnId, originalLabel);
+        });
+      } else {
+        fallbackCopyText(text, btnId, originalLabel);
+      }
+    }
+
+    function triggerSuccessFeedback(btnId, originalLabel) {
+      const btn = document.getElementById(btnId);
+      if (!btn) return;
+      btn.classList.add('copied');
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Copied to Clipboard!</span>';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = `<i class="fa-regular fa-copy"></i> <span>${originalLabel}</span>`;
+      }, 3000);
+    }
+
+    function fallbackCopyText(text, btnId, originalLabel) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        triggerSuccessFeedback(btnId, originalLabel);
+      } catch (err) {
+        alert('Please select and copy the code manually.');
+      }
+      document.body.removeChild(ta);
     }
   </script>
 </body>
